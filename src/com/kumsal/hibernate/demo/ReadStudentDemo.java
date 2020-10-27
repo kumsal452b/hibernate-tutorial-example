@@ -35,12 +35,12 @@ public class ReadStudentDemo {
 			session.getTransaction();
 			
 			Student theStudent1=session.get(Student.class, theStudent.getId());
-			
 			System.out.println("Take a student information ");
-			
 			System.out.println("First Name :"+theStudent1.getFirstName());
-
+			
 			System.out.println("First Name :"+theStudent1.getLastName());
+
+			session.getTransaction().commit();
 		} finally {
 			// TODO: handle finally clause
 		}
