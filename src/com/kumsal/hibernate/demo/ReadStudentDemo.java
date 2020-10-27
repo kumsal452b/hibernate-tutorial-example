@@ -6,6 +6,8 @@ import org.hibernate.cfg.Configuration;
 
 import com.kumsal.demo.entity.Student;
 
+import sun.print.resources.serviceui_zh_TW;
+
 public class ReadStudentDemo {
 
 	public static void main(String[] args) {
@@ -30,10 +32,15 @@ public class ReadStudentDemo {
 			System.out.println("New procces starting...");
 			
 			session=sessionFactory.getCurrentSession();
+			session.getTransaction();
 			
-			theStudent=session.get(Student.class, theStudent.getId());
+			Student theStudent1=session.get(Student.class, theStudent.getId());
 			
 			System.out.println("Take a student information ");
+			
+			System.out.println("First Name :"+theStudent1.getFirstName());
+
+			System.out.println("First Name :"+theStudent1.getLastName());
 		} finally {
 			// TODO: handle finally clause
 		}
