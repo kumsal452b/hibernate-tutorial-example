@@ -32,8 +32,8 @@ public class ReadStudentDemo {
 			System.out.println("New procces starting...");
 			
 			session=sessionFactory.getCurrentSession();
-			session.getTransaction();
-			
+			session.beginTransaction();
+			System.out.println(theStudent.getId());
 			Student theStudent1=session.get(Student.class, theStudent.getId());
 			System.out.println("Take a student information ");
 			System.out.println("First Name :"+theStudent1.getFirstName());
