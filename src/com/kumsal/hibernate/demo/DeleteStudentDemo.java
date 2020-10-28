@@ -19,12 +19,19 @@ public class DeleteStudentDemo {
 		Session session=sessionFactory.getCurrentSession();
 		
 		try {
-			int id=1;
+			int id=13;
 			session.beginTransaction();
 			Student theStudent=session.get(Student.class, id);
-			theStudent.setLastName("Alatas");
-			theStudent.setEmail("kms@gmail.com");
+//			session.delete(theStudent);
+			System.out.println("Delete succes");
+			
 			session.getTransaction().commit();
+			
+			session=sessionFactory.getCurrentSession();
+			session.beginTransaction();
+			
+			session.createQuery("delete from Student where first_name='Experiment'")
+					.executeUpdate();
 		} finally {
 			// TODO: handle finally clause
 		}
