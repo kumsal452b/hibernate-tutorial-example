@@ -16,7 +16,11 @@ public class QueryStudentDemo {
 				.addAnnotatedClass(Student.class)
 				.buildSessionFactory();
 		Session session=theSessions.getCurrentSession();
-		
-		List<Student> theStudents=session.query
+		session.beginTransaction();
+		List<Student> theStudents=session.createQuery("from student").list();
+		for (Student student : theStudents) {
+			
+		}
+		theSessions.close();
 	}
 }
