@@ -17,8 +17,9 @@ public class QueryStudentDemo {
 				.buildSessionFactory();
 		Session session=theSessions.getCurrentSession();
 		session.beginTransaction();
-		List<Student> theStudents=session.createQuery("from student").list();
+		List<Student> theStudents=session.createQuery("from Student where like email='%gmail.com'").list();
 		for (Student student : theStudents) {
+			System.out.println("first Name :"+student.getFirstName()+" "+"Last Name: "+student.getLastName());
 			
 		}
 		theSessions.close();
