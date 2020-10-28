@@ -23,6 +23,7 @@ public class UpdateStudentDemo {
 			session.beginTransaction();
 			Student theStudent=session.get(Student.class, id);
 			theStudent.setLastName("Alatas");
+			theStudent.setEmail("kms@gmail.com");
 			session.getTransaction().commit();
 		} finally {
 			// TODO: handle finally clause
